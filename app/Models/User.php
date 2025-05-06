@@ -3,9 +3,16 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Role;
+use App\Models\Image;
+use App\Models\Order;
+use App\Models\Review;
+use App\Models\Payment;
+use App\Models\Testimonial;
+use App\Models\Order_details;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
@@ -18,9 +25,11 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $fillable = [
+
         'name',
         'email',
         'password',
+        'type',
     ];
 
     /**
@@ -44,5 +53,52 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+
+        function role()
+        {
+            return $this->belongsTo(Role::class)->withDefault();
+        }
+
+
+        function images()
+    {
+        return $this->morphOne(Image::class, 'imageable');
     }
+
+
+// الشخص الواحد عنده كتيير اراء بيقدر يكتبها
+
+    function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
+
+
+    function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
+
+    function order_details()
+    {
+        return $this->hasMany(Order_details::class);
+    }
+
+    function payments()
+    {
+        return $this->hasMany(Payment::class);
+
+
+    }
+
+    function testimonial()
+    {
+        return $this->hasMany(Testimonial::class);
+
+
+    }
+
+
+
+}
 }
