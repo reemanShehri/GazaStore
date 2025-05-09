@@ -13,6 +13,12 @@ return [
     |
     */
 
+    'aliases' => [
+        'Route' => Illuminate\Support\Facades\Route::class,
+        'Auth' => Illuminate\Support\Facades\Auth::class,
+        'LaravelLocalization' => Mcamara\LaravelLocalization\Facades\LaravelLocalization::class,
+    ],
+
     'name' => env('APP_NAME', 'Laravel'),
 
     /*

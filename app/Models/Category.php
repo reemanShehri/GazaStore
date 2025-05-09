@@ -24,6 +24,17 @@ class Category extends Model
     }
 
 
+    function getImgPathAttribute(){
+    $url='https://via.placeholder.com/100x80';
+
+    if($this->images){
+
+        $url =asset('images/'.$this->images->path);
+    }
+    return $url;
+    }
+
+
 
 
 }

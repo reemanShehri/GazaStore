@@ -11,7 +11,7 @@ class Image extends Model
     //
 
     protected $guarded =[];
-
+    protected $fillable = ['path', 'imageable_id', 'imageable_type'];
 
     function imageable()
     {
