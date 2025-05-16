@@ -25,3 +25,9 @@ createInertiaApp({
         color: '#4B5563',
     },
 });
+
+
+Echo.private(`App.Models.User.${userId}`)
+    .notification((notification) => {
+        toastr.success(notification.msg);
+    });

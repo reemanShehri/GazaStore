@@ -10,6 +10,7 @@ use App\Models\Review;
 use App\Models\Payment;
 use App\Models\Testimonial;
 use App\Models\Order_details;
+use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -17,7 +18,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class User extends Authenticatable implements \Illuminate\Contracts\Auth\MustVerifyEmail
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable;
+    use HasFactory, Notifiable, HasApiTokens;
 
     /**
      * The attributes that are mass assignable.
@@ -60,7 +61,7 @@ class User extends Authenticatable implements \Illuminate\Contracts\Auth\MustVer
         }
 
 
-        function images()
+       function image()
     {
         return $this->morphOne(Image::class, 'imageable');
     }

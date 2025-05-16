@@ -51,10 +51,34 @@
 
 
     <li class="nav-item">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTw"
+            aria-expanded="true" aria-controls="collapseTw">
+            <i class="fas fa-fw fa-heart"></i>
+            <span>products</span>
+        </a>
+        <div id="collapseTw" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Custom products:</h6>
+                <a class="collapse-item" href="{{ route('admin.products.index') }}">all products</a>
+                <a class="collapse-item" href="{{ route('admin.products.create') }}">add new</a>
+            </div>
+        </div>
+    </li>
+
+
+   {{-- <li class="nav-item">
+        <a class="nav-link" href="#" data-toggle="collapseTwo" data-target="#collapseTwo">
             <i class="fas fa-fw fa-heart"></i>
             <span>Products</span></a>
-    </li>
+
+            <div id="collapseTwo" class="collapse" aria-labelledby="collapseTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Custom Categories:</h6>
+                    <a class="collapse-item" href="{{ route('admin.products.index') }}">all products</a>
+                    <a class="collapse-item" href="{{ route('admin.products.create') }}">add new</a>
+                </div>
+            </div>
+    </li> --}}
     <!-- Divider -->
 
     <hr class="sidebar-divider">

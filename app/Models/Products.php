@@ -10,6 +10,9 @@ use Illuminate\Database\Eloquent\Model;
 class Products extends Model
 {
     //
+    public $timestamps = false;
+
+
 
     protected $guarded =[];
 
@@ -42,5 +45,17 @@ class Products extends Model
     {
         return $this->hasMany(Order_details::class);
     }
+
+
+
+    function getImgPathAttribute(){
+        $url='https://via.placeholder.com/100x80';
+
+        if($this->images){
+
+            $url =asset('images/'.$this->images->path);
+        }
+        return $url;
+        }
 
 }

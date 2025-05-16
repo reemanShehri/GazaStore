@@ -51,8 +51,9 @@
                                             <span>No Image</span>
                                         @endif --}}
                                     </td>
+
                                     <td>{{ $category->name }}</td>
-                                    <td>count</td>
+                                    <td>{{ $category->products->count() }}</td>
                                     <td>
                                         <a href="{{ route('admin.categories.edit', $category->id) }}" class="btn btn-primary btn-sm">Edit</a>
                                         <form action="{{ route('admin.categories.destroy', $category->id) }}" method="POST" style="display:inline;">
